@@ -8,15 +8,16 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      packages: write
       contents: read
+      packages: write
 
     steps:
       - name: Checkout AFFiNE
         uses: actions/checkout@v3
         with:
           repository: toeverything/AFFiNE
-          ref: main # or a tag like v0.11.3
+          ref: main
+          token: ${{ secrets.GH_PAT }}
           submodules: recursive
 
       - name: Set up Docker Buildx
